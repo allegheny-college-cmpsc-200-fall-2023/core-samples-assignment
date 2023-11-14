@@ -1,0 +1,184 @@
+- hello_core/main.c:
+    - description: hello_core/main.c uses multicore_launch_core1 to launch second core's operations
+      category: Multicore programming
+      check: MatchFileFragment
+      options:
+        fragment: 'multicore_launch_core1'
+        count: 1
+        exact: true
+- hello_core/main.c:
+    - description: hello_core/main.c contains no TODOs
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
+- core_conditions/single_core_conditions/main.c:
+    - description: single_core_conditions/main.c contains no TODOs
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
+- core_conditions/single_core_conditions/main.c:
+    - description: single_core_conditions/main.c uses gettimeofday to calculate start and end times of code section of interest
+      category: Timing
+      check: MatchFileFragment
+      options:
+        fragment: 'gettimeofday'
+        count: 2
+        exact: true
+- core_conditions/single_core_conditions/main.c:
+    - description: single_core_conditions/main.c implements the three convert functions
+      category: Multicore programming
+      check: MatchFileFragment
+      options:
+        fragment: 'convert_'
+        count: 9
+        exact: false
+- core_conditions/single_core_conditions/main.c:
+    - description: single_core_conditions/main.c implements ADC control over device hardware
+      category: Multicore programming
+      check: MatchFileFragment
+      options:
+        fragment: 'adc_'
+        count: 3
+        exact: false
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c contains no TODOS
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c contains the multicore_fifo_push_blocking function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_push_blocking\(.*\)'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c contains the multicore_fifo_pop_blocking function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_pop_blocking\(.*\)'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c contains the multicore_fifo_rvalid function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_rvalid\(.*\)'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c clears the interrupt buffer twice
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_clear_irq\(\);'
+        count: 2
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c sets an interrupt handler
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'irq_set_exclusive_handler\(.*\);'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c enables the interrupt handler
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: ' irq_set_enabled\(.*\);'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c uses gettimeofday to measure code section performance
+      category: Timing
+      check: MatchFileFragment
+      options:
+        fragment: 'gettimeofday'
+        count: 2
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c contains sufficient multicore_fifo_push_blocking calls
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_push_blocking\('
+        count: 3
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c contains sufficient multicore_fifo_pop_blocking calls
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_pop_blocking\('
+        count: 3
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c uses gettimeofday to measure code section performance
+      category: Timing
+      check: MatchFileFragment
+      options:
+        fragment: 'gettimeofday'
+        count: 2
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c contains a struct definition
+      category: Memory Management
+      check: MatchFileRegex
+      options:
+        regex: 'struct\s[a-z_0-9]+(\s)?\{.*\};'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c contains at least one call to malloc
+      category: Memory Management
+      check: MatchFileRegex
+      options:
+        regex: 'malloc\(sizeof\(struct.*\);'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c measures remaining heap space
+      category: Memory Management
+      check: MatchFileRegex
+      options:
+        regex: 'getFreeHeap\(\).*;'
+        count: 1
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c uses uint type to characterize function addresses data values
+      category: Timing
+      check: MatchFileRegex
+      options:
+        regex: '(\()?uint(\))?'
+        count: 3
+        exact: false
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c contains at least one uint cast
+      category: Timing
+      check: MatchFileRegex
+      options:
+        regex: '\(uint\)'
+        count: 1
+        exact: false
+- core_conditions/multi_core_conditions/core_conditions_functions/main.c:
+    - description: core_conditions_functions/main.c contains no TODOS
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
