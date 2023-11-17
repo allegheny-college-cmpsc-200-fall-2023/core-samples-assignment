@@ -1,4 +1,4 @@
-# CMPSC 200: Cache Conundrum
+# CMPSC 200: Core Samples
 
 | Date              |          |
 |:------------------|:---------|
@@ -55,6 +55,45 @@ Complete this program using [core_conditions/multi_core_conditions/core_conditio
 This program presents a quasi-alternative to our buffer strategy: instead of dumping values for cores to "pick up," what if we passed _entire functions_ to the
 buffer and exchanged their results through buffer transfer? We'll discover a key lesson about the way that our buffer works and develop a new strategy
 for tacking our speed-up problem.
+
+### Lab: `core_principles`
+
+Complete this work in the folders contained in the [core_principles](core_principles) directory.
+
+Your task is to revise a previous lab program from the list below into _two_ multicore versions:
+
+* a one-way buffer read/write version (passes only values)
+* a version which passes functions instead of purely values
+
+This will require you to generalize about the code written in both of our multicore examples and apply a few techniques that test the edge of our knowledge. In addition, you'll need to provide the single-core versions of the programs in order to do testing (i.e. speedup and efficiency testing).
+
+The labs from you you can choose are:
+
+* `cart_corral` from `mine-cart-madness`
+*`classifier` from `the-moon-rocks`
+* `adder` from `c-of-tranquility`
+* `majority` from `circuit-scramble`
+
+All but one of these are good candidates for "parallelization" (i.e. multicore programming). If you find the one that's _not_ a great fit, do not despair! You can still finish the lab by answering the quesitons in the report.
+
+### Assignment "Hacks"
+
+See the suggestion below to challenge yourself to implement a Hack. As always, you are allowed to develop
+your own Hack to satisfy this stretch goal. Place the code for the Hack inline with the code in the corresponding
+file.
+
+In order to recieve credit for the Hack, you must fill out the [hack.md](docs/hack.md) file located in the
+`docs` folder.
+
+#### `core_conditions_functions`
+
+This program suffered _greatly_ from our approach. However, is there still a way to make it _faster_ than the single-core version? 
+
+> Hint: Can you find a way to reduce the memory footprint?
+
+#### Make it your own
+
+You are free to develop your own "Hack" for this assignment, provided that you respond to all of the questions in hack documentation.
 
 ### Changes to files in `.vscode`
 
