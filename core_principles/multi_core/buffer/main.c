@@ -9,11 +9,11 @@
 #include "pico/multicore.h"
 
 void core1_main(void) {
-    
+    // TODO: Populate second core functionality 
 }
 
 void core0_main(void) {
-
+    // TODO: Populate first core functionality     
 }
 
 int main(void) {

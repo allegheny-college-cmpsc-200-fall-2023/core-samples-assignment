@@ -160,7 +160,7 @@
         exact: true
 - core_conditions/multi_core_conditions/core_conditions_functions/main.c:
     - description: core_conditions_functions/main.c uses uint type to characterize function addresses data values
-      category: Timing
+      category: Casting
       check: MatchFileRegex
       options:
         regex: '(\()?uint(\))?'
@@ -168,7 +168,7 @@
         exact: false
 - core_conditions/multi_core_conditions/core_conditions_functions/main.c:
     - description: core_conditions_functions/main.c contains at least one uint cast
-      category: Timing
+      category: Casting
       check: MatchFileRegex
       options:
         regex: '\(uint\)'
@@ -181,4 +181,140 @@
       options:
         fragment: 'TODO'
         count: 0
+        exact: true
+- core_conditions/multi_core_conditions/core_conditions_buffer/main.c:
+    - description: core_conditions_buffer/main.c contains no TODOS
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c contains no TODOS
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c contains the multicore_fifo_push_blocking function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_push_blocking\(.*\)'
+        count: 1
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c contains the multicore_fifo_pop_blocking function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_pop_blocking\(.*\)'
+        count: 1
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c contains the multicore_fifo_rvalid function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_rvalid\(.*\)'
+        count: 1
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c clears the interrupt buffer twice
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_clear_irq\(\);'
+        count: 2
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c sets an interrupt handler
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'irq_set_exclusive_handler\(.*\);'
+        count: 1
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c enables the interrupt handler
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: ' irq_set_enabled\(.*\);'
+        count: 1
+        exact: true
+- core_principles/multi_core/buffer/main.c:
+    - description: core_principles/multi_core/buffer/main.c uses gettimeofday to measure code section performance
+      category: Timing
+      check: MatchFileFragment
+      options:
+        fragment: 'gettimeofday'
+        count: 2
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c contains no TODOS
+      category: TODOs
+      check: MatchFileFragment
+      options:
+        fragment: 'TODO'
+        count: 0
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c contains the multicore_fifo_push_blocking function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_push_blocking\(.*\)'
+        count: 1
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c contains the multicore_fifo_pop_blocking function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_pop_blocking\(.*\)'
+        count: 1
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c contains the multicore_fifo_rvalid function
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_rvalid\(.*\)'
+        count: 1
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c clears the interrupt buffer twice
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'multicore_fifo_clear_irq\(\);'
+        count: 2
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c sets an interrupt handler
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: 'irq_set_exclusive_handler\(.*\);'
+        count: 1
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c enables the interrupt handler
+      category: Multicore programming
+      check: MatchFileRegex
+      options:
+        regex: ' irq_set_enabled\(.*\);'
+        count: 1
+        exact: true
+- core_principles/multi_core/functions/main.c:
+    - description: core_principles/multi_core/functions/main.c uses gettimeofday to measure code section performance
+      category: Timing
+      check: MatchFileFragment
+      options:
+        fragment: 'gettimeofday'
+        count: 2
         exact: true
