@@ -70,7 +70,7 @@ This will require you to generalize about the code written in both of our multic
 The labs from you you can choose are:
 
 * `cart_corral` from `mine-cart-madness`
-*`classifier` from `the-moon-rocks`
+* `classifier` from `the-moon-rocks`
 * `adder` from `c-of-tranquility`
 * `majority` from `circuit-scramble`
 
